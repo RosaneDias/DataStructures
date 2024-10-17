@@ -1,39 +1,42 @@
-# 🧠 Entendendo a Notação Big O: Um Guia para Iniciantes
+# 🧠 Understanding Big O Notation and Data Structures: A Beginner's Guide
 
-A notação Big O é uma ferramenta matemática utilizada para descrever o desempenho de algoritmos, particularmente sua **complexidade de tempo** e **espaço** conforme o tamanho da entrada aumenta. Ela nos ajuda a analisar como um algoritmo se escala, especialmente no **pior caso**, e permite que comparemos diferentes algoritmos com base em sua eficiência.
-
----
-
-## 📐 O que é a Notação Big O?
-
-A notação Big O fornece um **limite superior** para o tempo de execução ou uso de memória de um algoritmo. O foco está em como o desempenho do algoritmo muda conforme o tamanho da entrada \(n\) aumenta.
-
-- **Objetivo**: Entender como um algoritmo se comporta com **entradas grandes**.
-- **Propósito**: Generalizar a eficiência do algoritmo, ignorando fatores constantes e termos de menor ordem.
-
-### Exemplo
-
-Se um algoritmo leva 1 segundo para 10 elementos e 2 segundos para 20 elementos, a **taxa de crescimento** é linear. A notação Big O expressa esse crescimento de forma simples: \(O(n)\).
+Big O notation is a mathematical tool used to describe the performance of algorithms and **data structures**, particularly their **time** and **space complexity** as the input size increases. It helps us analyze how an algorithm scales, especially in the **worst case**, and allows us to compare different algorithms and data structures based on their efficiency.
 
 ---
 
-## ⏳ Notações Comuns de Big O (Complexidade de Tempo)
+## 📐 What is Big O Notation?
 
-### **O(1): Tempo Constante** 
+Big O notation provides an **upper bound** for the time or space requirements of an algorithm. The focus is on how the algorithm's performance changes as the input size \(n\) grows.
 
-- **Definição**: O tempo de execução permanece constante, independentemente do tamanho da entrada.
-- **Exemplo**: Acessar um elemento em um array por seu índice.
+- **Objective**: To understand how an algorithm behaves with **large inputs**.
+- **Purpose**: To generalize the efficiency of the algorithm, ignoring constant factors and lower-order terms.
+
+### Example
+
+If an algorithm takes 1 second for 10 elements and 2 seconds for 20 elements, the **rate of growth** is linear. Big O notation expresses this growth simply as \(O(n)\).
+
+---
+
+## ⏳ Common Big O Notations (Time Complexity)
+
+### **O(1): Constant Time** 
+
+- **Definition**: The execution time remains constant, regardless of the input size.
+- **Example**: Accessing an element in an array by its index.
 
 ```python
 def get_first_element(arr):
     return arr[0]
 ```
+
+- **Time Complexity**: O(1)
+
 ---
 
-### **O(log n): Tempo Logarítmico**
+### **O(log n): Logarithmic Time**
 
-- **Definição**: O tempo de execução aumenta de forma logarítmica à medida que o tamanho da entrada cresce.
-- **Exemplo**: Busca binária, onde a cada passo o espaço de busca é reduzido pela metade.
+- **Definition**: The execution time increases logarithmically as the input size grows.
+- **Example**: Binary search, where the search space is halved at each step.
 
 ```python
 def binary_search(arr, target):
@@ -48,12 +51,15 @@ def binary_search(arr, target):
             high = mid - 1
     return -1
 ```
+
+- **Time Complexity**: O(log n)
+
 ---
 
-### **O(n): Tempo Linear**
+### **O(n): Linear Time**
 
-- **Definição**: O tempo de execução aumenta linearmente com o tamanho da entrada.
-- **Exemplo**: Iterar por um array para encontrar um elemento específico.
+- **Definition**: The execution time increases linearly with the input size.
+- **Example**: Iterating through an array to find a specific element.
 
 ```python
 def linear_search(arr, target):
@@ -62,12 +68,15 @@ def linear_search(arr, target):
             return i
     return -1
 ```
+
+- **Time Complexity**: O(n)
+
 ---
 
-### **O(n log n): Tempo Linearítmico**
+### **O(n log n): Linearithmic Time**
 
-- **Definição**: O tempo de execução cresce mais rápido que linear, mas mais lento que quadrático.
-- **Exemplo**: Algoritmos de ordenação eficientes, como Merge Sort e Quick Sort.
+- **Definition**: The execution time grows faster than linear but slower than quadratic.
+- **Example**: Efficient sorting algorithms like Merge Sort and Quick Sort.
 
 ```python
 def merge_sort(arr):
@@ -92,12 +101,15 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 ```
+
+- **Time Complexity**: O(n log n)
+
 ---
 
-### **O(n^2): Tempo Quadrático**
+### **O(n^2): Quadratic Time**
 
-- **Definição**: O tempo de execução cresce de forma quadrática conforme o tamanho da entrada aumenta.
-- **Exemplo**: Algoritmos de ordenação como Bubble Sort, que utilizam loops aninhados.
+- **Definition**: The execution time grows quadratically as the input size increases.
+- **Example**: Sorting algorithms like Bubble Sort, which use nested loops.
 
 ```python
 def bubble_sort(arr):
@@ -107,12 +119,15 @@ def bubble_sort(arr):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
 ```
+
+- **Time Complexity**: O(n^2)
+
 ---
 
-### **O(2^n): Tempo Exponencial**
+### **O(2^n): Exponential Time**
 
-- **Definição**: O tempo de execução dobra a cada novo elemento de entrada.
-- **Exemplo**: Cálculo recursivo da sequência de Fibonacci.
+- **Definition**: The execution time doubles with each additional element in the input.
+- **Example**: Recursive calculation of the Fibonacci sequence.
 
 ```python
 def fib(n):
@@ -120,12 +135,15 @@ def fib(n):
         return n
     return fib(n - 1) + fib(n - 2)
 ```
+
+- **Time Complexity**: O(2^n)
+
 ---
 
-### **O(n!): Tempo Fatorial**
+### **O(n!): Factorial Time**
 
-- **Definição**: O tempo de execução cresce de forma fatorial conforme o tamanho da entrada aumenta.
-- **Exemplo**: Geração de todas as possíveis permutações de um array.
+- **Definition**: The execution time grows factorially as the input size increases.
+- **Example**: Generating all possible permutations of an array.
 
 ```python
 def permutations(arr):
@@ -141,68 +159,73 @@ def permutations(arr):
             result.append([current] + perm)
     return result
 ```
+
+- **Time Complexity**: O(n!)
+
 ---
 
-## 📦 Estruturas de Dados e Complexidade
+## 📦 Data Structures and Complexity
 
-Além do algoritmo em si, a escolha de **estruturas de dados** pode impactar significativamente a eficiência do código. Algumas estruturas são mais adequadas para determinadas operações com base em sua **complexidade de tempo** e **espaço**.
+In addition to the algorithm itself, the choice of **data structures** can significantly impact the efficiency of the code. Some structures are more suitable for certain operations based on their **time** and **space complexity**.
 
 ### **Arrays**
 
-- **Acesso Aleatório**: O(1)
-- **Inserção/Remoção**: O(n)
-- **Busca**: O(n)
----
-
-### **Listas Ligadas**
-
-- **Acesso Aleatório**: O(n)
-- **Inserção/Remoção**: O(1)
-- **Busca**: O(n)
----
-
-### **Hash Tables (Dicionários)**
-
-- **Inserção**: O(1)
-- **Busca**: O(1)
-- **Remoção**: O(1)
----
-
-### **Pilhas e Filas**
-
-- **Operações de Inserção e Remoção**: O(1)
-- **Acesso Aleatório**: Não é suportado
----
-
-### **Árvores Binárias**
-
-- **Busca, Inserção e Remoção**: O(log n)
-- **Espaço de Armazenamento**: O(n)
----
-
-## 🔍 Como Analisar um Algoritmo e Estrutura de Dados
-
-Para analisar a complexidade de um algoritmo:
-
-1. **Observe os loops**: Loops aninhados geralmente levam a complexidade quadrática \(O(n^2)\), enquanto loops simples são lineares \(O(n)\).
-2. **Considere recursão**: Recursão muitas vezes implica em complexidade exponencial ou logarítmica, dependendo da forma como é aplicada.
-3. **Escolha da estrutura de dados**: A eficiência de várias operações, como busca, inserção e remoção, depende da estrutura de dados usada.
+- **Random Access**: O(1)
+- **Insertion/Removal**: O(n)
+- **Search**: O(n)
 
 ---
 
-## 📈 Por Que Big O É Importante?
+### **Linked Lists**
 
-A notação Big O ajuda você a:
-
-- **Entender a escalabilidade**: Como o algoritmo se comporta conforme a entrada cresce?
-- **Otimizar**: Comparar diferentes algoritmos e estruturas de dados para escolher a combinação mais eficiente.
-- **Evitar gargalos de desempenho**: Algoritmos com complexidade alta podem se tornar ineficazes para entradas grandes.
+- **Random Access**: O(n)
+- **Insertion/Removal**: O(1)
+- **Search**: O(n)
 
 ---
 
-## 📝 Conclusão
+### **Hash Tables (Dictionaries)**
 
-Compreender a notação Big O e sua aplicação em algoritmos e estruturas de dados é essencial
+- **Insertion**: O(1)
+- **Search**: O(1)
+- **Removal**: O(1)
 
- para construir soluções eficientes e escaláveis. A escolha correta de **estruturas de dados** aliada ao uso adequado de algoritmos pode otimizar drasticamente o desempenho do seu código, tanto em termos de tempo quanto de espaço.
+---
 
+### **Stacks and Queues**
+
+- **Insertion and Removal Operations**: O(1)
+- **Random Access**: Not supported
+
+---
+
+### **Binary Trees**
+
+- **Search, Insertion, and Removal**: O(log n)
+- **Space Complexity**: O(n)
+
+---
+
+## 🔍 How to Analyze an Algorithm and Data Structure
+
+To analyze the complexity of an algorithm and its associated data structures:
+
+1. **Observe the loops**: Nested loops usually lead to quadratic complexity \(O(n^2)\), while simple loops are linear \(O(n)\).
+2. **Consider recursion**: Recursion often implies exponential or logarithmic complexity, depending on how it’s applied.
+3. **Choice of data structure**: The efficiency of various operations, like search, insertion, and removal, depends on the data structure used.
+
+---
+
+## 📈 Why is Big O Important?
+
+Big O notation helps you to:
+
+- **Understand scalability**: How does the algorithm behave as the input grows?
+- **Optimize**: Compare different algorithms and data structures to choose the most efficient combination.
+- **Avoid performance bottlenecks**: Algorithms with high complexity can become ineffective for large inputs.
+
+---
+
+## 📝 Conclusion
+
+Understanding Big O notation and its application in algorithms and **data structures** is essential for building efficient and scalable solutions. The correct choice of **data structures** combined with the proper use of algorithms can drastically optimize your code's performance, both in terms of time and space.
